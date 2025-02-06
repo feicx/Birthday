@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF - 8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradually Show Text</title>
+    <style>
+        #textToShow {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#" onclick="showText()">点击查看</a>
+    <div id="textToShow">
+        <p>见字如晤，展信舒颜
+Dear Belinda，</p>
+        <p>Today, as you celebrate your 23rd year, I want to pour my heart into words that may, in some small way, remind you of how deeply cherished you are.</p>
+        <p>I know you've taken on the role of an elder sister to your younger siblings with so much love and responsibility. You've been a guiding light for them, making sure they feel safe and cared for.</p>
+        <p>But sometimes, I can't help but think about those quiet moments when you might feel a bit lonely.         
+
+<p>As you start this new chapter of your 23 - year - old life, may love find you in the most unexpected ways. May you be surrounded by friends who cherish you, and may you discover a love that makes you feel truly seen and cherished.</p>
+        <p>Remember, I'm always here for you. Whether you want to share a funny story over a cup of coffee, or you need someone to hold your hand during tough times, I'll be right by your side.</p>
+        <p>Happy birthday, Belinda! Here's to a year filled with more laughter, more love, and countless beautiful surprises.</p>
+        <p>With all my affection, Howard</p>
+    </div>
+
+    <script>
+        function showText() {
+            const textDiv = document.getElementById('textToShow');
+            textDiv.style.opacity = 1;
+            let charIndex = 0;
+            const text = textDiv.textContent;
+            textDiv.textContent = '';
+            const interval = setInterval(() => {
+                textDiv.textContent += text.charAt(charIndex);
+                charIndex++;
+                if (charIndex >= text.length) {
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+    </script>
+</body>
+
+</html>
